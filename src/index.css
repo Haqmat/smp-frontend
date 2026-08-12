@@ -3,6 +3,8 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+@source "./components/ui/**/*.{ts,tsx}";
+
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
@@ -138,13 +140,15 @@ main > * {
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  
+  /* ===== INCREASED BORDER RADIUS FOR MORE ROUNDED CORNERS ===== */
+  --radius-sm: calc(var(--radius) * 0.8);    /* Was 0.6 */
+  --radius-md: calc(var(--radius) * 1.0);    /* Was 0.8 */
+  --radius-lg: calc(var(--radius) * 1.4);    /* Was 1.0 */
+  --radius-xl: calc(var(--radius) * 1.8);    /* Was 1.4 */
+  --radius-2xl: calc(var(--radius) * 2.2);   /* Was 1.8 */
+  --radius-3xl: calc(var(--radius) * 2.8);   /* Was 2.2 */
+  --radius-4xl: calc(var(--radius) * 3.4);   /* Was 2.6 */
 }
 
 :root {
@@ -171,7 +175,10 @@ main > * {
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
+  
+  /* ===== INCREASED BASE RADIUS ===== */
+  --radius: 1rem;  /* Was 0.625rem - now 16px instead of 10px */
+  
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -214,4 +221,22 @@ main > * {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* ===== CUSTOM ROUNDED UTILITY CLASSES ===== */
+@layer utilities {
+  .rounded-3xl {
+    border-radius: calc(var(--radius) * 1.8);
+  }
+  .rounded-4xl {
+    border-radius: calc(var(--radius) * 2.6);
+  }
+  .rounded-5xl {
+    border-radius: calc(var(--radius) * 3.4);
+  }
+  
+  /* Full rounded (pill shape) */
+  .rounded-full {
+    border-radius: 9999px;
+  }
 }
