@@ -60,18 +60,18 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50 dark:bg-gray-950 p-4">
-      <Card className="w-full max-w-md rounded-2xl border-gray-200 dark:border-gray-800 shadow-lg">
+    <div className="min-h-screen w-full flex items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-md rounded-2xl border-border shadow-lg">
         <CardHeader className="text-center pb-4">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 rounded-2xl bg-[#a38413] flex items-center justify-center text-white font-bold text-2xl shadow-md">
               <Plant className="h-6 w-6" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+          <CardTitle className="text-2xl font-bold text-foreground">
             Welcome to Haqmat
           </CardTitle>
-          <CardDescription className="text-gray-500 dark:text-gray-400 mt-1">
+          <CardDescription className="text-muted-foreground mt-1">
             Sign in to your account to continue
           </CardDescription>
         </CardHeader>
@@ -83,17 +83,17 @@ const LoginPage: React.FC = () => {
             onValueChange={(value) => setLoginMethod(value as 'username' | 'phone')}
             className="w-full"
           >
-            <TabsList className="grid w-full grid-cols-2 rounded-xl bg-gray-100 dark:bg-gray-800 p-1 h-12">
+            <TabsList className="grid w-full grid-cols-2 rounded-xl bg-accent p-1 h-12">
               <TabsTrigger 
                 value="username"
-                className="rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-gray-900 data-[state=active]:shadow-sm text-sm font-medium"
+                className="rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-card data-[state=active]:shadow-sm text-sm font-medium"
               >
                 <User className="mr-2 h-4 w-4" />
                 Username
               </TabsTrigger>
               <TabsTrigger 
                 value="phone"
-                className="rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-gray-900 data-[state=active]:shadow-sm text-sm font-medium"
+                className="rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-card data-[state=active]:shadow-sm text-sm font-medium"
               >
                 <Phone className="mr-2 h-4 w-4" />
                 Phone Number
@@ -104,16 +104,16 @@ const LoginPage: React.FC = () => {
               {/* Username Tab */}
               <TabsContent value="username" className="mt-0 space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="username" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <Label htmlFor="username" className="text-sm font-medium text-foreground">
                     Username
                   </Label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-500" />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="username"
                       type="text"
                       placeholder="Enter your username"
-                      className="pl-10 pr-4 py-2.5 rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
+                      className="pl-10 pr-4 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
                       {...register('username', { 
                         required: loginMethod === 'username' ? 'Username is required' : false,
                       })}
@@ -128,16 +128,16 @@ const LoginPage: React.FC = () => {
               {/* Phone Tab */}
               <TabsContent value="phone" className="mt-0 space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <Label htmlFor="phone" className="text-sm font-medium text-foreground">
                     Phone Number
                   </Label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-500" />
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="phone"
                       type="tel"
                       placeholder="+251 9XX XXX XXX"
-                      className="pl-10 pr-4 py-2.5 rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
+                      className="pl-10 pr-4 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
                       {...register('phone', { 
                         required: loginMethod === 'phone' ? 'Phone number is required' : false,
                       })}
@@ -151,16 +151,16 @@ const LoginPage: React.FC = () => {
 
               {/* Password */}
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <Label htmlFor="password" className="text-sm font-medium text-foreground">
                   Password
                 </Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-500" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Enter your password"
-                    className="pl-10 pr-12 py-2.5 rounded-xl border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
+                    className="pl-10 pr-12 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
                     {...register('password', { 
                       required: 'Password is required',
                       minLength: {
@@ -172,7 +172,7 @@ const LoginPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
                   >
                     {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
                   </button>
@@ -212,7 +212,7 @@ const LoginPage: React.FC = () => {
         </CardContent>
 
         <CardFooter className="flex justify-center py-4 px-6">
-          <p className="text-xs text-gray-400 dark:text-gray-500">
+          <p className="text-xs text-muted-foreground">
             Haqmat Sales Management Platform v1.0
           </p>
         </CardFooter>

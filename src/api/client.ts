@@ -14,6 +14,8 @@ interface ErrorResponse {
   };
 }
 
+import { handleMockRequest } from '../mocks/router';
+
 // Create axios instance
 const apiClient: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'https://api.haqmat.com/api/v1',
@@ -22,6 +24,47 @@ const apiClient: AxiosInstance = axios.create({
   },
   timeout: 30000,
 });
+
+if (import.meta.env.VITE_USE_MOCK_API !== 'false') {
+  apiClient.defaults.adapter = async (config) => {
+    try {
+      const data = await handleMockRequest(config);
+      return {
+        data: {
+          success: true,
+          data,
+        },
+        status: 200,
+        statusText: 'OK',
+        headers: {} as any,
+        config,
+      };
+    } catch (err: any) {
+      return Promise.reject({
+        message: err.message || 'Mock Error',
+        response: {
+          data: {
+            success: false,
+            error: {
+              code: err.code || 'MOCK_ERROR',
+              message: err.message || 'An error occurred in mock handler',
+              message_am: err.message_am || 'በሞክ ሲስተም ላይ ስህተት ተፈጥሯል',
+              details: err.details,
+              timestamp: new Date().toISOString(),
+              request_id: 'mock_req_' + Date.now(),
+            },
+          },
+          status: err.status || 400,
+          statusText: 'Bad Request',
+          headers: {} as any,
+          config,
+        },
+        config,
+      } as any);
+    }
+  };
+}
+
 
 // Token management
 let accessToken: string | null = null;

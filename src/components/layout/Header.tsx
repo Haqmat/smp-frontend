@@ -1,6 +1,7 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { Package, Plus } from '@phosphor-icons/react';
+import { List, Plus } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
@@ -10,6 +11,8 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const { user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const getInitials = (name: string) => {
     return name
@@ -20,23 +23,45 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
       .slice(0, 2);
   };
 
+  // Convert pathname like /inventory/grain-intake into "Inventory / Grain Intake"
+  const getBreadcrumbs = () => {
+    const paths = location.pathname.split('/').filter(Boolean);
+    if (paths.length === 0) return 'Dashboard';
+    
+    return paths
+      .map(path => {
+        // Capitalize and replace hyphens
+        const word = path.replace(/-/g, ' ');
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(' / ');
+  };
+
   return (
-    <header className="h-16 bg-white dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-gray-800 px-5 flex items-center justify-between">
+    <header className="h-16 bg-card text-card-foreground border-b border-border px-5 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <button 
           onClick={onMenuClick} 
-          className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl text-gray-600 dark:text-gray-400 transition-colors"
+          className="lg:hidden p-2 hover:bg-accent rounded-xl text-muted-foreground transition-colors"
+          aria-label="Open menu"
         >
-          <Package size={24} />
+          <List size={24} />
         </button>
         <div>
-          <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Dashboard</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Welcome back, {user?.full_name || 'User'}</p>
+          <h1 className="text-lg font-semibold text-foreground leading-none">
+            {getBreadcrumbs()}
+          </h1>
+          <p className="text-xs text-muted-foreground mt-1">
+            Logged in as: <span className="font-semibold text-foreground">{user?.full_name || 'User'}</span> ({user?.role || 'Guest'})
+          </p>
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <Button className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white px-4 py-2" size="default">
-          <Plus className="mr-2 h-5 w-5" />
+        <Button 
+          onClick={() => navigate('/sales/new')}
+          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white px-4 h-10 text-sm font-medium shadow-sm"
+        >
+          <Plus className="mr-2 h-4 w-4" />
           New Sale
         </Button>
         <Avatar className="h-9 w-9 rounded-full">

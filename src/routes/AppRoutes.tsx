@@ -9,10 +9,39 @@ import AuthLayout from '@/layouts/AuthLayout';
 import LoginPage from '@/pages/auth/LoginPage';
 import ChangePasswordPage from '@/pages/auth/ChangePasswordPage';
 
-// Dashboard
+// Dashboard Page
 import DashboardPage from '@/pages/dashboard/DashboardPage';
 
-// Error page
+// Inventory Pages
+import GrainIntakePage from '@/pages/inventory/GrainIntakePage';
+import GrainIntakeDetailPage from '@/pages/inventory/GrainIntakeDetailPage';
+import MillingPage from '@/pages/inventory/MillingPage';
+import StockLevelsPage from '@/pages/inventory/StockLevelsPage';
+import StockMovementsPage from '@/pages/inventory/StockMovementsPage';
+
+// Sales Pages
+import NewSalePage from '@/pages/sales/NewSalePage';
+import SalesListPage from '@/pages/sales/SalesListPage';
+import SaleDetailPage from '@/pages/sales/SaleDetailPage';
+
+// Expenses Pages
+import NewExpensePage from '@/pages/expenses/NewExpensePage';
+import ExpensesListPage from '@/pages/expenses/ExpensesListPage';
+
+// Reports Pages
+import AnnualSalesReportPage from '@/pages/reports/AnnualSalesReportPage';
+import ProfitLossReportPage from '@/pages/reports/ProfitLossReportPage';
+
+// Admin Pages
+import UserManagementPage from '@/pages/admin/UserManagementPage';
+import ProductManagementPage from '@/pages/admin/ProductManagementPage';
+import SystemConfigPage from '@/pages/admin/SystemConfigPage';
+
+// User & Help Pages
+import ProfilePage from '@/pages/user/ProfilePage';
+import HelpPage from '@/pages/help/HelpPage';
+
+// Error Page
 import NotFoundPage from '@/pages/NotFoundPage';
 
 // Protected Route Guard
@@ -110,7 +139,37 @@ const AppRoutes = createBrowserRouter([
         children: [
           { index: true, element: <Navigate to="/dashboard" replace /> },
           { path: 'dashboard', element: <DashboardPage /> },
-          // TODO: Add more routes here
+          
+          // User & System Routes
+          { path: 'profile', element: <ProfilePage /> },
+          { path: 'settings', element: <SystemConfigPage /> },
+          { path: 'help', element: <HelpPage /> },
+
+          // Inventory Routes
+          { path: 'inventory/grain-intake', element: <GrainIntakePage /> },
+          { path: 'inventory/grain-intake/:receiptNumber', element: <GrainIntakeDetailPage /> },
+          { path: 'inventory/milling', element: <MillingPage /> },
+          { path: 'inventory/stock-levels', element: <StockLevelsPage /> },
+          { path: 'inventory/stock-movements', element: <StockMovementsPage /> },
+          { path: 'inventory/stock-movements/:productId', element: <StockMovementsPage /> },
+
+          // Sales Routes
+          { path: 'sales/new', element: <NewSalePage /> },
+          { path: 'sales', element: <SalesListPage /> },
+          { path: 'sales/:receiptNumber', element: <SaleDetailPage /> },
+
+          // Expenses Routes
+          { path: 'expenses/new', element: <NewExpensePage /> },
+          { path: 'expenses', element: <ExpensesListPage /> },
+
+          // Reports Routes
+          { path: 'reports/annual-sales', element: <AnnualSalesReportPage /> },
+          { path: 'reports/profit-loss', element: <ProfitLossReportPage /> },
+
+          // Admin Routes
+          { path: 'admin/users', element: <UserManagementPage /> },
+          { path: 'admin/products', element: <ProductManagementPage /> },
+          { path: 'admin/config', element: <SystemConfigPage /> },
         ],
       },
     ],

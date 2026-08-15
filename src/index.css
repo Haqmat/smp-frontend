@@ -26,11 +26,11 @@
   }
 
   .dark {
-    --color-bg-light: #121212;
-    --color-bg-subtle: #1a1a1a;
-    --color-border-light: #2c2c2c;
-    --color-text-main: #f5f5f5;
-    --color-text-muted: #a3a3a3;
+    --color-bg-light: var(--background);
+    --color-bg-subtle: var(--card);
+    --color-border-light: var(--border);
+    --color-text-main: var(--foreground);
+    --color-text-muted: var(--muted-foreground);
 
     --color-success: #22c55e;
     --color-success-bg: rgba(20, 83, 45, 0.4);
@@ -41,68 +41,101 @@
   }
 
   body {
-    background-color: var(--color-bg-light);
-    color: var(--color-text-main);
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 16px; /* Base font size */
+    font-size: 16px;
+    /* Base font size */
     @apply bg-background text-foreground;
   }
 
   /* Make text larger overall */
   h1 {
-    font-size: 1.875rem; /* 30px */
+    font-size: 1.875rem;
+    /* 30px */
     font-weight: 700;
   }
+
   h2 {
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.5rem;
+    /* 24px */
     font-weight: 600;
   }
+
   h3 {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
+    /* 20px */
     font-weight: 600;
   }
+
   h4 {
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
+    /* 18px */
     font-weight: 600;
   }
-  p, label, input, button, a, span, div {
-    font-size: 1rem; /* 16px base */
+
+  p,
+  label,
+  input,
+  button,
+  a,
+  span,
+  div {
+    font-size: 1rem;
+    /* 16px base */
   }
+
   .text-sm {
-    font-size: 0.875rem !important; /* 14px */
+    font-size: 0.875rem !important;
+    /* 14px */
   }
+
   .text-xs {
-    font-size: 0.75rem !important; /* 12px */
+    font-size: 0.75rem !important;
+    /* 12px */
   }
+
   .text-lg {
-    font-size: 1.125rem !important; /* 18px */
+    font-size: 1.125rem !important;
+    /* 18px */
   }
+
   .text-xl {
-    font-size: 1.25rem !important; /* 20px */
+    font-size: 1.25rem !important;
+    /* 20px */
   }
+
   .text-2xl {
-    font-size: 1.5rem !important; /* 24px */
+    font-size: 1.5rem !important;
+    /* 24px */
   }
+
   .text-3xl {
-    font-size: 1.875rem !important; /* 30px */
+    font-size: 1.875rem !important;
+    /* 30px */
   }
 
   .text-2xs {
     font-size: 0.65rem;
     line-height: 0.85rem;
   }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     @apply font-sans;
   }
 }
 
 /* Minimalist Smooth Animations & Transitions */
-button, a, input, div {
+button,
+a,
+input,
+div {
   transition-property: color, background-color, border-color, transform, opacity, box-shadow;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -117,13 +150,14 @@ button:active {
     opacity: 0;
     transform: translateY(4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-main > * {
+main>* {
   animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -180,15 +214,22 @@ main > * {
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
-  
+
   /* ===== INCREASED BORDER RADIUS FOR MORE ROUNDED CORNERS ===== */
-  --radius-sm: calc(var(--radius) * 0.8);    /* Was 0.6 */
-  --radius-md: calc(var(--radius) * 1.0);    /* Was 0.8 */
-  --radius-lg: calc(var(--radius) * 1.4);    /* Was 1.0 */
-  --radius-xl: calc(var(--radius) * 1.8);    /* Was 1.4 */
-  --radius-2xl: calc(var(--radius) * 2.2);   /* Was 1.8 */
-  --radius-3xl: calc(var(--radius) * 2.8);   /* Was 2.2 */
-  --radius-4xl: calc(var(--radius) * 3.4);   /* Was 2.6 */
+  --radius-sm: calc(var(--radius) * 0.8);
+  /* Was 0.6 */
+  --radius-md: calc(var(--radius) * 1.0);
+  /* Was 0.8 */
+  --radius-lg: calc(var(--radius) * 1.4);
+  /* Was 1.0 */
+  --radius-xl: calc(var(--radius) * 1.8);
+  /* Was 1.4 */
+  --radius-2xl: calc(var(--radius) * 2.2);
+  /* Was 1.8 */
+  --radius-3xl: calc(var(--radius) * 2.8);
+  /* Was 2.2 */
+  --radius-4xl: calc(var(--radius) * 3.4);
+  /* Was 2.6 */
 }
 
 :root {
@@ -215,10 +256,11 @@ main > * {
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  
+
   /* ===== INCREASED BASE RADIUS ===== */
-  --radius: 1rem;  /* Was 0.625rem - now 16px instead of 10px */
-  
+  --radius: 1rem;
+  /* Was 0.625rem - now 16px instead of 10px */
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -230,37 +272,37 @@ main > * {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #121212;
+  --foreground: #f5f5f5;
+  --card: #1e1e1e;
+  --card-foreground: #f5f5f5;
+  --popover: #1e1e1e;
+  --popover-foreground: #f5f5f5;
+  --primary: #a38413;
+  --primary-foreground: #ffffff;
+  --secondary: #262626;
+  --secondary-foreground: #f5f5f5;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --accent: #262626;
+  --accent-foreground: #f5f5f5;
+  --destructive: #dc2626;
+  --border: #333333;
+  --input: #333333;
+  --ring: #404040;
+  --chart-1: #525252;
+  --chart-2: #404040;
+  --chart-3: #737373;
+  --chart-4: #a3a3a3;
+  --chart-5: #d4d4d4;
+  --sidebar: #181818;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #a38413;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #262626;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: #333333;
+  --sidebar-ring: #404040;
 }
 
 /* ===== CUSTOM ROUNDED UTILITY CLASSES ===== */
@@ -268,13 +310,15 @@ main > * {
   .rounded-3xl {
     border-radius: calc(var(--radius) * 1.8);
   }
+
   .rounded-4xl {
     border-radius: calc(var(--radius) * 2.6);
   }
+
   .rounded-5xl {
     border-radius: calc(var(--radius) * 3.4);
   }
-  
+
   /* Full rounded (pill shape) */
   .rounded-full {
     border-radius: 9999px;
@@ -288,6 +332,7 @@ main > * {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -295,10 +340,13 @@ main > * {
 }
 
 @keyframes pulseSlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.5;
   }
+
   50% {
     transform: scale(1.05);
     opacity: 1;
@@ -306,27 +354,36 @@ main > * {
 }
 
 @keyframes float1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
   }
+
   50% {
     transform: translateY(-10px) translateX(5px);
   }
 }
 
 @keyframes float2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
   }
+
   50% {
     transform: translateY(10px) translateX(-5px);
   }
 }
 
 @keyframes bounceSubtle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }

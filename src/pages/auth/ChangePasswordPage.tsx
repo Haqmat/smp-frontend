@@ -72,18 +72,18 @@ const ChangePasswordPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 p-4">
-      <Card className="w-full max-w-md rounded-2xl border-gray-200 dark:border-gray-800">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-md rounded-2xl border-border">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="w-14 h-14 rounded-2xl bg-[#a38413] flex items-center justify-center text-white font-bold text-2xl">
               H
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+          <CardTitle className="text-2xl font-bold text-foreground">
             Change Password
           </CardTitle>
-          <CardDescription className="text-gray-500 dark:text-gray-400">
+          <CardDescription className="text-muted-foreground">
             Please change your password before continuing
           </CardDescription>
           <CardDescription className="text-sm text-[#a38413] font-medium mt-2">
@@ -94,16 +94,16 @@ const ChangePasswordPage: React.FC = () => {
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="current_password" className="text-gray-700 dark:text-gray-300">
+              <Label htmlFor="current_password" className="text-foreground">
                 Current Password
               </Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="current_password"
                   type={showCurrentPassword ? 'text' : 'password'}
                   placeholder="Enter current password"
-                  className="pl-9 pr-10 rounded-xl border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-[#a38413]/20"
+                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#a38413]/20"
                   {...register('current_password', { 
                     required: 'Current password is required' 
                   })}
@@ -111,7 +111,7 @@ const ChangePasswordPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-gray-700 dark:hover:text-gray-300"
                 >
                   {showCurrentPassword ? <EyeSlash size={18} /> : <Eye size={18} />}
                 </button>
@@ -122,16 +122,16 @@ const ChangePasswordPage: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="new_password" className="text-gray-700 dark:text-gray-300">
+              <Label htmlFor="new_password" className="text-foreground">
                 New Password
               </Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="new_password"
                   type={showNewPassword ? 'text' : 'password'}
                   placeholder="Enter new password"
-                  className="pl-9 pr-10 rounded-xl border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-[#a38413]/20"
+                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#a38413]/20"
                   {...register('new_password', { 
                     required: 'New password is required',
                     minLength: {
@@ -143,7 +143,7 @@ const ChangePasswordPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowNewPassword(!showNewPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-gray-700 dark:hover:text-gray-300"
                 >
                   {showNewPassword ? <EyeSlash size={18} /> : <Eye size={18} />}
                 </button>
@@ -154,16 +154,16 @@ const ChangePasswordPage: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirm_password" className="text-gray-700 dark:text-gray-300">
+              <Label htmlFor="confirm_password" className="text-foreground">
                 Confirm New Password
               </Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="confirm_password"
                   type={showConfirmPassword ? 'text' : 'password'}
                   placeholder="Confirm new password"
-                  className="pl-9 pr-10 rounded-xl border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-[#a38413]/20"
+                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#a38413]/20"
                   {...register('confirm_password', { 
                     required: 'Please confirm your password',
                     validate: (value) => 
@@ -173,7 +173,7 @@ const ChangePasswordPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-gray-700 dark:hover:text-gray-300"
                 >
                   {showConfirmPassword ? <EyeSlash size={18} /> : <Eye size={18} />}
                 </button>
@@ -209,7 +209,7 @@ const ChangePasswordPage: React.FC = () => {
           </form>
         </CardContent>
 
-        <CardFooter className="flex justify-center text-sm text-gray-500 dark:text-gray-400">
+        <CardFooter className="flex justify-center text-sm text-muted-foreground">
           <p>Haqmat Sales Management Platform v1.0</p>
         </CardFooter>
       </Card>
