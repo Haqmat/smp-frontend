@@ -217,7 +217,7 @@ export const GrainIntakePage: React.FC = () => {
       >
         <Button
           onClick={() => setIsModalOpen(true)}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-11 text-base shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-11 text-base shadow-sm"
         >
           <Plus className="mr-2 h-5 w-5" />
           Log Grain Intake
@@ -227,7 +227,7 @@ export const GrainIntakePage: React.FC = () => {
       {/* Filters Card */}
       <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
         <h3 className="text-base font-bold text-foreground mb-4 flex items-center gap-2">
-          <Funnel size={18} className="text-[#a38413]" />
+          <Funnel size={18} className="text-[#5A3E2B]" />
           Filter Batches
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -291,7 +291,7 @@ export const GrainIntakePage: React.FC = () => {
 
       {/* Log Intake Modal */}
       <Dialog open={isModalOpen} onOpenChange={(open) => !open && setIsModalOpen(false)}>
-        <DialogContent className="max-w-2xl bg-card rounded-2xl p-6 overflow-y-auto max-h-[85vh]">
+        <DialogContent className="bg-card sm:max-w-3xl">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">Record Grain Intake</DialogTitle>
           </DialogHeader>
@@ -365,7 +365,7 @@ export const GrainIntakePage: React.FC = () => {
                       <select
                         value={item.product_id}
                         onChange={(e) => updateLineItem(idx, 'product_id', e.target.value)}
-                        className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                        className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                       >
                         <option value="">Select a grain...</option>
                         {availableProducts.map(p => (
@@ -426,7 +426,7 @@ export const GrainIntakePage: React.FC = () => {
                 rows={2}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full rounded-xl border border-border bg-card p-3 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                className="w-full rounded-xl border border-border bg-card p-3 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                 placeholder="Any special remarks..."
               />
             </div>
@@ -434,7 +434,7 @@ export const GrainIntakePage: React.FC = () => {
             {/* Totals Summary */}
             <div className="bg-muted/40 p-4 rounded-xl flex items-center justify-between">
               <span className="font-bold text-muted-foreground">Total Purchase Cost:</span>
-              <span className="text-xl font-bold text-[#a38413]">
+              <span className="text-xl font-bold text-[#5A3E2B]">
                 {formatCurrency(calculateGrandTotal())}
               </span>
             </div>
@@ -451,7 +451,7 @@ export const GrainIntakePage: React.FC = () => {
               </Button>
               <Button
                 type="submit"
-                className="rounded-xl h-11 px-5 bg-[#a38413] hover:bg-[#85690F] text-white"
+                className="rounded-xl h-11 px-5 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white"
                 disabled={formLoading}
               >
                 {formLoading ? 'Submitting...' : 'Save Intake'}

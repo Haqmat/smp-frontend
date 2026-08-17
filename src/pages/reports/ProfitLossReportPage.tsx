@@ -81,13 +81,13 @@ export const ProfitLossReportPage: React.FC = () => {
             className="rounded-xl flex items-center gap-2 h-11 px-4 border-border"
             disabled={exporting}
           >
-            <FileXls size={20} className="text-green-600" />
+            <FileXls size={20} className="text-green-700" />
             Excel
           </Button>
 
           <Button
             onClick={() => handleExport('pdf')}
-            className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white flex items-center gap-2 h-11 px-4 shadow-sm"
+            className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white flex items-center gap-2 h-11 px-4 shadow-sm"
             disabled={exporting}
           >
             <FilePdf size={20} />
@@ -98,14 +98,14 @@ export const ProfitLossReportPage: React.FC = () => {
 
       {loading || !reportData ? (
         <div className="h-[400px] flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a38413]" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A3E2B]" />
         </div>
       ) : (
         <Card className="rounded-2xl border-border shadow-md bg-card p-8 print:shadow-none print:border-none">
           <CardContent className="space-y-8 p-0">
             {/* Statement Title */}
             <div className="border-b border-border pb-6 text-center space-y-1">
-              <h2 className="text-2xl font-bold text-[#a38413]">{reportData.company_name}</h2>
+              <h2 className="text-2xl font-bold text-[#5A3E2B]">{reportData.company_name}</h2>
               <h3 className="text-xl font-bold text-foreground">Profit and Loss Statement</h3>
               <p className="text-sm text-muted-foreground">Period: {reportData.period_ethiopian}</p>
             </div>
@@ -148,18 +148,16 @@ export const ProfitLossReportPage: React.FC = () => {
               </div>
 
               {/* Net Income Summary Banner */}
-              <div className={`p-6 rounded-2xl flex items-center justify-between border ${
-                (reportData.net_profit_loss ?? 0) >= 0
-                  ? 'bg-green-950/20 border-green-900/40'
-                  : 'bg-red-950/20 border-red-900/40'
-              }`}>
+              <div className={`p-6 rounded-2xl flex items-center justify-between border ${(reportData.net_profit_loss ?? 0) >= 0
+                ? 'bg-green-950/20 border-green-900/40'
+                : 'bg-red-50 border-red-900/40'
+                }`}>
                 <div>
                   <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                     Net Income / Profit (Loss)
                   </span>
-                  <h3 className={`text-3xl font-bold mt-1 ${
-                    (reportData.net_profit_loss ?? 0) >= 0 ? 'text-green-400' : 'text-red-400'
-                  }`}>
+                  <h3 className={`text-3xl font-bold mt-1 ${(reportData.net_profit_loss ?? 0) >= 0 ? 'text-green-400' : 'text-red-400'
+                    }`}>
                     {formatCurrency(reportData.net_profit_loss)}
                   </h3>
                 </div>

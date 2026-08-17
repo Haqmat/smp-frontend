@@ -36,7 +36,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
   if (loading) {
     return (
       <div className="h-[400px] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a38413]" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A3E2B]" />
       </div>
     );
   }
@@ -46,7 +46,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
       <div className="text-center py-12">
         <h3 className="text-xl font-bold text-foreground">Batch Not Found</h3>
         <p className="text-gray-500 mt-2">The requested grain intake batch does not exist or has been removed.</p>
-        <Button onClick={() => navigate('/inventory/grain-intake')} className="mt-4 rounded-xl bg-[#a38413]">
+        <Button onClick={() => navigate('/inventory/grain-intake')} className="mt-4 rounded-xl bg-[#5A3E2B]">
           Back to List
         </Button>
       </div>
@@ -70,7 +70,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
           </h1>
         </div>
         <div className="flex items-center gap-2">
-          <Button 
+          <Button
             onClick={() => window.print()}
             variant="outline"
             className="rounded-xl flex items-center gap-2 h-11 px-5 border-border"
@@ -85,7 +85,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card className="rounded-2xl border-border shadow-sm bg-card">
           <CardContent className="p-6 space-y-4">
-            <div className="flex items-center gap-3 text-[#a38413]">
+            <div className="flex items-center gap-3 text-[#5A3E2B]">
               <Info className="w-6 h-6" />
               <h3 className="font-bold text-gray-800 text-foreground">Supplier Info</h3>
             </div>
@@ -98,7 +98,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
 
         <Card className="rounded-2xl border-border shadow-sm bg-card">
           <CardContent className="p-6 space-y-4">
-            <div className="flex items-center gap-3 text-[#a38413]">
+            <div className="flex items-center gap-3 text-[#5A3E2B]">
               <Calendar className="w-6 h-6" />
               <h3 className="font-bold text-gray-800 text-foreground">Intake Date</h3>
             </div>
@@ -111,7 +111,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
 
         <Card className="rounded-2xl border-border shadow-sm bg-card">
           <CardContent className="p-6 space-y-4">
-            <div className="flex items-center gap-3 text-[#a38413]">
+            <div className="flex items-center gap-3 text-[#5A3E2B]">
               <User className="w-6 h-6" />
               <h3 className="font-bold text-gray-800 text-foreground">Log Details</h3>
             </div>
@@ -165,7 +165,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
           </div>
           <div className="text-foreground flex justify-between w-64 text-lg font-bold border-t border-border pt-2 mt-1">
             <span>Grand Total:</span>
-            <span className="text-[#a38413]">{formatCurrency(batch.total_cost)}</span>
+            <span className="text-[#5A3E2B]">{formatCurrency(batch.total_cost)}</span>
           </div>
         </div>
       </div>
@@ -174,7 +174,7 @@ export const GrainIntakeDetailPage: React.FC = () => {
       {batch.notes && (
         <Card className="rounded-2xl border-border shadow-sm bg-card">
           <CardContent className="p-6 space-y-3">
-            <div className="flex items-center gap-2 text-[#a38413] font-bold">
+            <div className="flex items-center gap-2 text-[#5A3E2B] font-bold">
               <Note className="w-5 h-5" />
               <h3>Remarks / Notes</h3>
             </div>

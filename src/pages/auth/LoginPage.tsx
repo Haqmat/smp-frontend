@@ -33,16 +33,16 @@ const LoginPage: React.FC = () => {
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     try {
-      const credentials = loginMethod === 'username' 
+      const credentials = loginMethod === 'username'
         ? { username: data.username, password: data.password }
         : { phone: data.phone, password: data.password };
 
       const response = await login(credentials);
-      
+
       toast.success('Login Successful', {
         description: `Welcome back, ${response.user.full_name}!`,
       });
-      
+
       if (response.user.is_first_login) {
         navigate('/change-password');
       } else {
@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
       <Card className="w-full max-w-md rounded-2xl border-border shadow-lg">
         <CardHeader className="text-center pb-4">
           <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#a38413] flex items-center justify-center text-white font-bold text-2xl shadow-md">
+            <div className="w-16 h-16 rounded-2xl bg-[#5A3E2B] flex items-center justify-center text-white font-bold text-2xl shadow-md">
               <Plant className="h-6 w-6" />
             </div>
           </div>
@@ -77,21 +77,21 @@ const LoginPage: React.FC = () => {
         </CardHeader>
 
         <CardContent className="px-6 pb-2">
-          <Tabs 
-            defaultValue="username" 
-            value={loginMethod} 
+          <Tabs
+            defaultValue="username"
+            value={loginMethod}
             onValueChange={(value) => setLoginMethod(value as 'username' | 'phone')}
             className="w-full"
           >
             <TabsList className="grid w-full grid-cols-2 rounded-xl bg-accent p-1 h-12">
-              <TabsTrigger 
+              <TabsTrigger
                 value="username"
                 className="rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-card data-[state=active]:shadow-sm text-sm font-medium"
               >
                 <User className="mr-2 h-4 w-4" />
                 Username
               </TabsTrigger>
-              <TabsTrigger 
+              <TabsTrigger
                 value="phone"
                 className="rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-card data-[state=active]:shadow-sm text-sm font-medium"
               >
@@ -113,14 +113,14 @@ const LoginPage: React.FC = () => {
                       id="username"
                       type="text"
                       placeholder="Enter your username"
-                      className="pl-10 pr-4 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
-                      {...register('username', { 
+                      className="pl-10 pr-4 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#5A3E2B]/30 focus:border-[#5A3E2B] h-11"
+                      {...register('username', {
                         required: loginMethod === 'username' ? 'Username is required' : false,
                       })}
                     />
                   </div>
                   {errors.username && (
-                    <p className="text-sm text-red-600 dark:text-red-400">{errors.username.message}</p>
+                    <p className="text-sm text-red-700 dark:text-red-400">{errors.username.message}</p>
                   )}
                 </div>
               </TabsContent>
@@ -137,14 +137,14 @@ const LoginPage: React.FC = () => {
                       id="phone"
                       type="tel"
                       placeholder="+251 9XX XXX XXX"
-                      className="pl-10 pr-4 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
-                      {...register('phone', { 
+                      className="pl-10 pr-4 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#5A3E2B]/30 focus:border-[#5A3E2B] h-11"
+                      {...register('phone', {
                         required: loginMethod === 'phone' ? 'Phone number is required' : false,
                       })}
                     />
                   </div>
                   {errors.phone && (
-                    <p className="text-sm text-red-600 dark:text-red-400">{errors.phone.message}</p>
+                    <p className="text-sm text-red-700 dark:text-red-400">{errors.phone.message}</p>
                   )}
                 </div>
               </TabsContent>
@@ -160,8 +160,8 @@ const LoginPage: React.FC = () => {
                     id="password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Enter your password"
-                    className="pl-10 pr-12 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#a38413]/30 focus:border-[#a38413] h-11"
-                    {...register('password', { 
+                    className="pl-10 pr-12 py-2.5 rounded-xl border-border bg-card text-foreground focus:ring-2 focus:ring-[#5A3E2B]/30 focus:border-[#5A3E2B] h-11"
+                    {...register('password', {
                       required: 'Password is required',
                       minLength: {
                         value: 8,
@@ -178,21 +178,21 @@ const LoginPage: React.FC = () => {
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="text-sm text-red-600 dark:text-red-400">{errors.password.message}</p>
+                  <p className="text-sm text-red-700 dark:text-red-400">{errors.password.message}</p>
                 )}
               </div>
 
               {/* Error Message */}
               {errors.root && (
                 <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800">
-                  <p className="text-sm text-red-600 dark:text-red-400">{errors.root.message}</p>
+                  <p className="text-sm text-red-700 dark:text-red-400">{errors.root.message}</p>
                 </div>
               )}
 
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-12 text-base font-medium shadow-md hover:shadow-lg transition-all duration-200"
+                className="w-full rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-12 text-base font-medium shadow-md hover:shadow-lg transition-all duration-200"
                 disabled={isLoading}
               >
                 {isLoading ? (

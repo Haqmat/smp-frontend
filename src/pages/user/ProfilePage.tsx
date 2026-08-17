@@ -53,7 +53,7 @@ export const ProfilePage: React.FC = () => {
       <Card className="rounded-2xl border-border shadow-sm bg-card">
         <CardContent className="p-6 space-y-6">
           <div className="flex items-center gap-4 border-b border-gray-100 border-border pb-6">
-            <div className="w-16 h-16 rounded-2xl bg-[#a38413] flex items-center justify-center text-white font-bold text-2xl shadow-sm">
+            <div className="w-16 h-16 rounded-2xl bg-[#5A3E2B] flex items-center justify-center text-white font-bold text-2xl shadow-sm">
               {user?.full_name ? user.full_name.charAt(0) : 'H'}
             </div>
             <div>
@@ -63,7 +63,7 @@ export const ProfilePage: React.FC = () => {
               <p className="text-gray-500 font-medium">@{user?.username || 'user'}</p>
             </div>
             <div className="ml-auto">
-              <Badge variant="outline" className="rounded-xl px-3 py-1 bg-amber-50 text-[#a38413] border-amber-200 font-bold">
+              <Badge variant="outline" className="rounded-xl px-3 py-1 bg-amber-50 text-[#5A3E2B] border-amber-200 font-bold">
                 <ShieldCheck size={16} className="mr-1 inline" /> {user?.role || 'OPERATOR'}
               </Badge>
             </div>
@@ -95,7 +95,7 @@ export const ProfilePage: React.FC = () => {
       <Card className="rounded-2xl border-border shadow-sm bg-card">
         <CardContent className="p-6">
           <h3 className="text-lg font-bold text-foreground border-b border-gray-100 border-border pb-3 mb-4 flex items-center gap-2">
-            <Lock size={20} className="text-[#a38413]" /> Change Account Password
+            <Lock size={20} className="text-[#5A3E2B]" /> Change Account Password
           </h3>
 
           <form onSubmit={handlePasswordChange} className="space-y-4">
@@ -140,7 +140,7 @@ export const ProfilePage: React.FC = () => {
             <div className="pt-4 flex justify-end">
               <Button
                 type="submit"
-                className="rounded-xl h-11 px-6 bg-[#a38413] hover:bg-[#85690F] text-white font-bold"
+                className="rounded-xl h-11 px-6 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white font-bold"
                 disabled={loading}
               >
                 {loading ? 'Updating Password...' : 'Update Password'}

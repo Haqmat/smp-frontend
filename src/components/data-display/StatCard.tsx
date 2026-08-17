@@ -18,7 +18,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   trend,
   trendLabel = 'vs last period',
   icon: Icon,
-  accentColor = 'border-l-4 border-l-[#a38413]',
+  accentColor = 'border-l-4 border-l-[#5A3E2B]',
 }) => {
   const hasTrend = trend !== undefined;
   const isPositive = hasTrend && trend! >= 0;
@@ -37,7 +37,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           </div>
           {Icon && (
             <div className="w-12 h-12 rounded-xl bg-muted text-muted-foreground flex items-center justify-center">
-              <Icon className="w-6 h-6 text-[#a38413]" />
+              <Icon className="w-6 h-6 text-[#5A3E2B]" />
             </div>
           )}
         </div>
@@ -48,8 +48,8 @@ export const StatCard: React.FC<StatCardProps> = ({
               className={cn(
                 'flex items-center text-sm font-semibold rounded-lg px-2 py-0.5',
                 isPositive
-                  ? 'bg-green-50 dark:bg-green-950/20 text-green-600 dark:text-green-400'
-                  : 'bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400'
+                  ? 'bg-green-50 dark:bg-green-950/20 text-green-700 dark:text-green-400'
+                  : 'bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400'
               )}
             >
               {isPositive ? (

@@ -65,7 +65,7 @@ export const AnnualSalesReportPage: React.FC = () => {
         <div className="flex items-center gap-3">
           {/* Year Picker */}
           <div className="flex items-center gap-2 bg-card border border-border rounded-xl px-3 py-1.5 shadow-sm">
-            <Calendar className="text-[#a38413] w-5 h-5" />
+            <Calendar className="text-[#5A3E2B] w-5 h-5" />
             <select
               value={fiscalYear}
               onChange={(e) => setFiscalYear(Number(e.target.value))}
@@ -83,13 +83,13 @@ export const AnnualSalesReportPage: React.FC = () => {
             className="rounded-xl flex items-center gap-2 h-11 px-4 border-border"
             disabled={exporting}
           >
-            <FileXls size={20} className="text-green-600" />
+            <FileXls size={20} className="text-green-700" />
             Excel
           </Button>
 
           <Button
             onClick={() => handleExport('pdf')}
-            className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white flex items-center gap-2 h-11 px-4 shadow-sm"
+            className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white flex items-center gap-2 h-11 px-4 shadow-sm"
             disabled={exporting}
           >
             <FilePdf size={20} />
@@ -100,7 +100,7 @@ export const AnnualSalesReportPage: React.FC = () => {
 
       {loading || !reportData ? (
         <div className="h-[400px] flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a38413]" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A3E2B]" />
         </div>
       ) : (
         <div className="space-y-6">
@@ -110,7 +110,7 @@ export const AnnualSalesReportPage: React.FC = () => {
               {/* Header Details */}
               <div className="flex justify-between items-start border-b border-border pb-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-[#a38413]">{reportData.report_metadata.company_name}</h2>
+                  <h2 className="text-2xl font-bold text-[#5A3E2B]">{reportData.report_metadata.company_name}</h2>
                   <p className="text-sm text-gray-500">TIN: {reportData.report_metadata.company_tin}</p>
                   <p className="text-base font-bold text-foreground mt-2">
                     Annual Sales Register - Fiscal Year {reportData.report_metadata.fiscal_year}
@@ -138,13 +138,13 @@ export const AnnualSalesReportPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-gray-500 uppercase">VAT (15%)</span>
-                  <p className="text-xl font-bold text-[#a38413] mt-1">
+                  <p className="text-xl font-bold text-[#5A3E2B] mt-1">
                     {formatCurrency(reportData.grand_totals.total_vat)}
                   </p>
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-gray-500 uppercase">Total Revenue (Inc. VAT)</span>
-                  <p className="text-xl font-bold text-green-600 dark:text-green-400 mt-1">
+                  <p className="text-xl font-bold text-green-700 dark:text-green-400 mt-1">
                     {formatCurrency(reportData.grand_totals.total_revenue_including_vat)}
                   </p>
                 </div>

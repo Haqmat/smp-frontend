@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { 
-  House, 
-  Package, 
-  ShoppingCart, 
-  Wallet, 
-  ChartBar, 
-  Users, 
+import {
+  House,
+  Package,
+  ShoppingCart,
+  Wallet,
+  ChartBar,
+  Users,
   Sun,
   Moon,
   SignOut,
@@ -144,12 +144,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     <>
       {/* Mobile overlay */}
       {isOpen && (
-        <div 
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden" 
+        <div
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
           onClick={onClose}
         />
       )}
-      
+
       <aside className={`
         fixed top-0 left-0 z-50 h-full w-64 bg-sidebar text-sidebar-foreground
         border-r border-sidebar-border
@@ -159,19 +159,19 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col h-full overflow-hidden">
           {/* Header */}
           <div className="p-4 border-b border-sidebar-border flex items-center justify-between flex-shrink-0">
-            <div 
+            <div
               className="flex items-center gap-3 cursor-pointer"
               onClick={() => handleNavigation('/dashboard')}
             >
-              <div className="w-10 h-10 rounded-xl bg-[#a38413] flex items-center justify-center text-white font-bold text-xl shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#5A3E2B] flex items-center justify-center text-white font-bold text-xl shadow-sm">
                 H
               </div>
               <div>
-                <h1 className="text-xl font-bold text-[#a38413] leading-tight">Haqmat</h1>
+                <h1 className="text-xl font-bold text-[#5A3E2B] leading-tight">Haqmat</h1>
                 <p className="text-xs text-muted-foreground">Sales Management</p>
               </div>
             </div>
-            
+
             <button
               onClick={onClose}
               className="lg:hidden p-2 hover:bg-accent rounded-xl text-muted-foreground transition-colors"
@@ -186,16 +186,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             {/* Dashboard Direct Button */}
             <button
               onClick={() => handleNavigation('/dashboard')}
-              className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${
-                isActive('/dashboard')
-                  ? 'bg-[#a38413]/15 text-[#a38413] font-bold'
-                  : 'text-sidebar-foreground hover:bg-sidebar-accent transition-colors'
-              }`}
+              className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${isActive('/dashboard')
+                ? 'bg-[#5A3E2B]/15 text-[#5A3E2B] font-bold'
+                : 'text-sidebar-foreground hover:bg-sidebar-accent transition-colors'
+                }`}
             >
               <House size={20} />
               <span className="font-semibold">Dashboard</span>
               {isActive('/dashboard') && (
-                <span className="ml-auto w-2 h-2 rounded-full bg-[#a38413]" />
+                <span className="ml-auto w-2 h-2 rounded-full bg-[#5A3E2B]" />
               )}
             </button>
 
@@ -224,11 +223,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                           <button
                             key={item.name}
                             onClick={() => handleNavigation(item.path)}
-                            className={`flex items-center gap-3 w-full px-3 py-2 rounded-xl text-sm transition-all duration-200 ${
-                              active
-                                ? 'bg-[#a38413]/15 text-[#a38413] font-bold'
-                                : 'text-muted-foreground hover:text-foreground hover:bg-sidebar-accent'
-                            }`}
+                            className={`flex items-center gap-3 w-full px-3 py-2 rounded-xl text-sm transition-all duration-200 ${active
+                              ? 'bg-[#5A3E2B]/15 text-[#5A3E2B] font-bold'
+                              : 'text-muted-foreground hover:text-foreground hover:bg-sidebar-accent'
+                              }`}
                           >
                             <ItemIcon size={18} />
                             <span>{item.name}</span>
@@ -245,15 +243,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           {/* Bottom Fixed Footer - User Profile & Sign Out Always at Bottom */}
           <div className="p-3 border-t border-sidebar-border flex-shrink-0 bg-sidebar space-y-2.5">
             {/* User Details Box */}
-            <div 
+            <div
               onClick={() => handleNavigation('/profile')}
               className="flex items-center gap-3 p-2 rounded-xl hover:bg-sidebar-accent cursor-pointer transition-colors group"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#a38413] text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-[#5A3E2B] text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
                 {user?.full_name ? user.full_name.charAt(0) : <User size={18} />}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-sidebar-foreground truncate group-hover:text-[#a38413] transition-colors">
+                <p className="text-sm font-bold text-sidebar-foreground truncate group-hover:text-[#5A3E2B] transition-colors">
                   {user?.full_name || 'User Account'}
                 </p>
                 <div className="flex items-center gap-1.5">
@@ -267,7 +265,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             <div className="grid grid-cols-2 gap-2 pt-1 border-t border-sidebar-border">
               <button
                 onClick={toggleTheme}
-                className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-semibold text-sidebar-foreground bg-sidebar-accent border border-sidebar-border hover:bg-muted transition-colors"
+                className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-semibold text-sidebar-foreground bg-sidebar-accent/50 border border-sidebar-border hover:bg-muted transition-colors"
               >
                 {theme === 'light' ? <Moon size={15} /> : <Sun size={15} />}
                 <span>{theme === 'light' ? 'Dark' : 'Light'}</span>
@@ -275,7 +273,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
               <button
                 onClick={handleLogout}
-                className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-semibold text-red-500 bg-red-950/30 border border-red-900/40 hover:bg-red-900/50 transition-colors"
+                className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-semibold text-red-500 bg-red-50 border border-red-900/40 hover:bg-red-900/50 transition-colors"
               >
                 <SignOut size={15} />
                 <span>Sign Out</span>

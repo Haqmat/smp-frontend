@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const getBreadcrumbs = () => {
     const paths = location.pathname.split('/').filter(Boolean);
     if (paths.length === 0) return 'Dashboard';
-    
+
     return paths
       .map(path => {
         // Capitalize and replace hyphens
@@ -40,8 +40,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   return (
     <header className="h-16 bg-card text-card-foreground border-b border-border px-5 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <button 
-          onClick={onMenuClick} 
+        <button
+          onClick={onMenuClick}
           className="lg:hidden p-2 hover:bg-accent rounded-xl text-muted-foreground transition-colors"
           aria-label="Open menu"
         >
@@ -57,15 +57,15 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <Button 
+        <Button
           onClick={() => navigate('/sales/new')}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white px-4 h-10 text-sm font-medium shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white px-4 h-10 text-sm font-medium shadow-sm"
         >
           <Plus className="mr-2 h-4 w-4" />
           New Sale
         </Button>
         <Avatar className="h-9 w-9 rounded-full">
-          <AvatarFallback className="bg-[#a38413] text-white text-sm font-medium">
+          <AvatarFallback className="bg-[#5A3E2B] text-white text-sm font-medium">
             {user?.full_name ? getInitials(user.full_name) : 'U'}
           </AvatarFallback>
         </Avatar>

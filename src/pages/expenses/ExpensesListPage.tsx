@@ -84,7 +84,7 @@ export const ExpensesListPage: React.FC = () => {
         <div>
           <span className="font-medium text-foreground block">{row.description}</span>
           {row.linked_to && (
-            <span className="text-xs text-[#a38413] block">
+            <span className="text-xs text-[#5A3E2B] block">
               Linked to Batch: {row.linked_to.batch_receipt} ({row.linked_to.supplier_name})
             </span>
           )}
@@ -95,7 +95,7 @@ export const ExpensesListPage: React.FC = () => {
       header: 'Amount',
       accessorKey: 'amount',
       cell: (row: Expense) => (
-        <span className="font-bold text-red-600 dark:text-red-400">
+        <span className="font-bold text-red-700 dark:text-red-400">
           {formatCurrency(row.amount)}
         </span>
       )
@@ -120,7 +120,7 @@ export const ExpensesListPage: React.FC = () => {
       >
         <Button
           onClick={() => navigate('/expenses/new')}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-11 text-base shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-11 text-base shadow-sm"
         >
           <Plus className="mr-2 h-5 w-5" />
           Record Expense
@@ -157,9 +157,9 @@ export const ExpensesListPage: React.FC = () => {
           </h4>
         </div>
 
-        <div className="bg-card p-4 rounded-2xl border border-l-4 border-l-red-500 border-border shadow-sm">
-          <p className="text-xs font-semibold text-red-500 uppercase">Total OpEx</p>
-          <h4 className="text-xl font-bold text-red-600 dark:text-red-400 mt-1">
+        <div className="bg-card p-4 rounded-2xl border border-l-4 border-l-red-700 border-border shadow-sm">
+          <p className="text-xs font-semibold text-red-700 uppercase">Total OpEx</p>
+          <h4 className="text-xl font-bold text-red-700 dark:text-red-400 mt-1">
             {formatCurrency(totalExpenses)}
           </h4>
         </div>
@@ -168,7 +168,7 @@ export const ExpensesListPage: React.FC = () => {
       {/* Filter Card */}
       <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
         <h3 className="text-base font-bold text-foreground mb-4 flex items-center gap-2">
-          <Funnel size={18} className="text-[#a38413]" />
+          <Funnel size={18} className="text-[#5A3E2B]" />
           Filter Expenses
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -178,7 +178,7 @@ export const ExpensesListPage: React.FC = () => {
               id="filterCat"
               value={categoryFilter}
               onChange={(e) => { setCategoryFilter(e.target.value); setPage(1); }}
-              className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+              className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
             >
               <option value="ALL">All Categories</option>
               <option value="TRANSPORT">Transport</option>

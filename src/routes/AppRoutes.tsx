@@ -47,61 +47,61 @@ import NotFoundPage from '@/pages/NotFoundPage';
 // Protected Route Guard
 const ProtectedRoute: React.FC = () => {
   const { isAuthenticated, isLoading } = useAuth();
-  
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a38413]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A3E2B]"></div>
       </div>
     );
   }
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-  
+
   return <Outlet />;
 };
 
 // Auth Route Guard (redirects to dashboard if already authenticated)
 const AuthRoute: React.FC = () => {
   const { isAuthenticated, isLoading } = useAuth();
-  
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a38413]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A3E2B]"></div>
       </div>
     );
   }
-  
+
   if (isAuthenticated) {
     return <Navigate to="/dashboard" replace />;
   }
-  
+
   return <Outlet />;
 };
 
 // Change Password Route Guard (only accessible if user needs to change password)
 const ChangePasswordRoute: React.FC = () => {
   const { user, isAuthenticated, isLoading } = useAuth();
-  
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a38413]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A3E2B]"></div>
       </div>
     );
   }
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-  
+
   if (!user?.is_first_login) {
     return <Navigate to="/dashboard" replace />;
   }
-  
+
   return <Outlet />;
 };
 
@@ -127,7 +127,7 @@ const AppRoutes = createBrowserRouter([
       },
     ],
   },
-  
+
   // Protected routes (require authentication)
   {
     path: '/',
@@ -139,7 +139,7 @@ const AppRoutes = createBrowserRouter([
         children: [
           { index: true, element: <Navigate to="/dashboard" replace /> },
           { path: 'dashboard', element: <DashboardPage /> },
-          
+
           // User & System Routes
           { path: 'profile', element: <ProfilePage /> },
           { path: 'settings', element: <SystemConfigPage /> },
@@ -174,7 +174,7 @@ const AppRoutes = createBrowserRouter([
       },
     ],
   },
-  
+
   // 404 - Not found (outside the layout, full screen, no scroll)
   {
     path: '*',

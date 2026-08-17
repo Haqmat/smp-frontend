@@ -39,15 +39,14 @@ export const SystemConfigPage: React.FC = () => {
           <CardContent className="p-6 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Database size={24} className="text-[#a38413]" />
+                <Database size={24} className="text-[#5A3E2B]" />
                 <div>
                   <h3 className="font-bold text-foreground text-lg">API Backend Mode</h3>
                   <p className="text-sm text-gray-500">Current API connection state for Haqmat SMP</p>
                 </div>
               </div>
-              <Badge variant="outline" className={`rounded-xl px-3 py-1 text-sm font-bold ${
-                isMockActive ? 'bg-amber-50 text-amber-700 border-amber-300' : 'bg-green-50 text-green-700 border-green-300'
-              }`}>
+              <Badge variant="outline" className={`rounded-xl px-3 py-1 text-sm font-bold ${isMockActive ? 'bg-amber-50 text-amber-700 border-amber-300' : 'bg-green-50 text-green-700 border-green-300'
+                }`}>
                 {isMockActive ? 'Mock Adapter (In-Memory)' : 'Production Server'}
               </Badge>
             </div>
@@ -109,7 +108,7 @@ export const SystemConfigPage: React.FC = () => {
             <div className="pt-4 flex justify-end">
               <Button
                 type="submit"
-                className="rounded-xl h-11 px-6 bg-[#a38413] hover:bg-[#85690F] text-white font-bold"
+                className="rounded-xl h-11 px-6 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white font-bold"
                 disabled={saving}
               >
                 {saving ? 'Saving...' : 'Save Settings'}

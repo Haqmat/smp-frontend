@@ -176,7 +176,7 @@ export const NewSalePage: React.FC = () => {
           <Card className="rounded-2xl border-border shadow-sm bg-card">
             <CardContent className="p-6 space-y-4">
               <h3 className="text-lg font-bold text-foreground mb-2">Customer & Receipt Info</h3>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="receiptNo" className="required">Manual Receipt Number</Label>
@@ -254,7 +254,7 @@ export const NewSalePage: React.FC = () => {
                         <select
                           value={item.product_id}
                           onChange={(e) => updateLineItem(idx, 'product_id', e.target.value)}
-                          className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                          className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                         >
                           <option value="">Select flour...</option>
                           {availableProducts.map(p => (
@@ -354,7 +354,7 @@ export const NewSalePage: React.FC = () => {
                 rows={2}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full rounded-xl border border-border bg-card p-3 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                className="w-full rounded-xl border border-border bg-card p-3 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                 placeholder="Optional sale details..."
               />
             </CardContent>
@@ -366,7 +366,7 @@ export const NewSalePage: React.FC = () => {
           <Card className="rounded-2xl border-border shadow-sm bg-card sticky top-6">
             <CardContent className="p-6 space-y-4">
               <h3 className="text-lg font-bold text-foreground border-b border-gray-100 border-border pb-3 flex items-center gap-2">
-                <Receipt className="w-5 h-5 text-[#a38413]" />
+                <Receipt className="w-5 h-5 text-[#5A3E2B]" />
                 Financial Summary
               </h3>
 
@@ -387,18 +387,18 @@ export const NewSalePage: React.FC = () => {
                 </div>
                 <div className="flex justify-between text-muted-foreground">
                   <span>VAT (15%):</span>
-                  <span className="font-semibold text-[#a38413]">{formatCurrency(vatAmount)}</span>
+                  <span className="font-semibold text-[#5A3E2B]">{formatCurrency(vatAmount)}</span>
                 </div>
 
                 <div className="border-t border-border pt-3 flex justify-between text-lg font-bold text-foreground">
                   <span>Grand Total (Inc. VAT):</span>
-                  <span className="text-[#a38413] text-xl">{formatCurrency(totalAmount)}</span>
+                  <span className="text-[#5A3E2B] text-xl">{formatCurrency(totalAmount)}</span>
                 </div>
               </div>
 
               <Button
                 type="submit"
-                className="w-full h-12 rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white text-base font-bold shadow-md hover:shadow-lg transition-all mt-4"
+                className="w-full h-12 rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white text-base font-bold shadow-md hover:shadow-lg transition-all mt-4"
                 disabled={loading || checkStockExceeded()}
               >
                 {loading ? 'Processing Sale...' : 'Complete & Print Sale'}

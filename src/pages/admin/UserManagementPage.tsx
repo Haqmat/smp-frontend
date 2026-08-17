@@ -165,7 +165,7 @@ export const UserManagementPage: React.FC = () => {
             variant="ghost"
             size="sm"
             onClick={() => setResetUserId(row.id)}
-            className="rounded-xl text-[#a38413] hover:bg-amber-50 dark:hover:bg-amber-950/20 h-9"
+            className="rounded-xl text-[#5A3E2B] hover:bg-amber-50 dark:hover:bg-amber-950/20 h-9"
           >
             <Key size={16} className="mr-1 inline" /> Reset Pwd
           </Button>
@@ -182,7 +182,7 @@ export const UserManagementPage: React.FC = () => {
       >
         <Button
           onClick={() => setIsAddModalOpen(true)}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-11 text-base shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-11 text-base shadow-sm"
         >
           <Plus className="mr-2 h-5 w-5" />
           Add New User
@@ -197,7 +197,7 @@ export const UserManagementPage: React.FC = () => {
 
       {/* Add User Modal */}
       <Dialog open={isAddModalOpen} onOpenChange={(open) => !open && setIsAddModalOpen(false)}>
-        <DialogContent className="max-w-md bg-card rounded-2xl p-6">
+        <DialogContent className="bg-card">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">Add System User</DialogTitle>
           </DialogHeader>
@@ -233,7 +233,7 @@ export const UserManagementPage: React.FC = () => {
                 id="addRole"
                 value={role}
                 onChange={(e) => setRole(e.target.value as any)}
-                className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
               >
                 <option value="SALES">Sales Operator</option>
                 <option value="MANAGER">Factory Manager</option>
@@ -266,7 +266,7 @@ export const UserManagementPage: React.FC = () => {
               </Button>
               <Button
                 type="submit"
-                className="rounded-xl h-11 px-5 bg-[#a38413] hover:bg-[#85690F] text-white"
+                className="rounded-xl h-11 px-5 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white"
                 disabled={formLoading}
               >
                 {formLoading ? 'Creating...' : 'Create Account'}
@@ -278,7 +278,7 @@ export const UserManagementPage: React.FC = () => {
 
       {/* Reset Password Modal */}
       <Dialog open={!!resetUserId} onOpenChange={(open) => !open && setResetUserId(null)}>
-        <DialogContent className="max-w-md bg-card rounded-2xl p-6">
+        <DialogContent className="bg-card">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">Reset Password</DialogTitle>
           </DialogHeader>
@@ -310,7 +310,7 @@ export const UserManagementPage: React.FC = () => {
               <Button
                 type="button"
                 onClick={handleResetPassword}
-                className="rounded-xl h-11 px-5 bg-[#a38413] hover:bg-[#85690F] text-white"
+                className="rounded-xl h-11 px-5 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white"
                 disabled={resetLoading}
               >
                 {resetLoading ? 'Resetting...' : 'Update Password'}

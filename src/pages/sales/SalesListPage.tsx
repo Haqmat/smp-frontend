@@ -100,7 +100,7 @@ export const SalesListPage: React.FC = () => {
         <div>
           <span className="font-bold text-foreground block">{row.manual_receipt_number}</span>
           {(row as any).status === 'VOIDED' && (
-            <span className="text-xs font-bold text-red-600 dark:text-red-400 uppercase">VOIDED</span>
+            <span className="text-xs font-bold text-red-700 dark:text-red-400 uppercase">VOIDED</span>
           )}
         </div>
       )
@@ -155,7 +155,7 @@ export const SalesListPage: React.FC = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => setSelectedReceiptToVoid(row.manual_receipt_number)}
-                className="rounded-xl text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 h-9 px-2"
+                className="rounded-xl text-red-700 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 h-9 px-2"
               >
                 <Prohibit size={16} />
                 Void
@@ -175,7 +175,7 @@ export const SalesListPage: React.FC = () => {
       >
         <Button
           onClick={() => navigate('/sales/new')}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-11 text-base shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-11 text-base shadow-sm"
         >
           <Plus className="mr-2 h-5 w-5" />
           New Sale
@@ -185,7 +185,7 @@ export const SalesListPage: React.FC = () => {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-card p-5 rounded-2xl border border-border shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-[#a38413]">
+          <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-[#5A3E2B]">
             <Receipt size={24} />
           </div>
           <div>
@@ -195,12 +195,12 @@ export const SalesListPage: React.FC = () => {
         </div>
 
         <div className="bg-card p-5 rounded-2xl border border-border shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-green-600">
+          <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-green-700">
             <ShoppingCart size={24} />
           </div>
           <div>
             <p className="text-sm font-medium text-gray-500">Total Net Revenue</p>
-            <h4 className="text-2xl font-bold text-green-600 dark:text-green-400">{formatCurrency(summary.total_revenue)}</h4>
+            <h4 className="text-2xl font-bold text-green-700 dark:text-green-400">{formatCurrency(summary.total_revenue)}</h4>
           </div>
         </div>
 
@@ -218,7 +218,7 @@ export const SalesListPage: React.FC = () => {
       {/* Filter Card */}
       <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
         <h3 className="text-base font-bold text-foreground mb-4 flex items-center gap-2">
-          <Funnel size={18} className="text-[#a38413]" />
+          <Funnel size={18} className="text-[#5A3E2B]" />
           Filter Sales History
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -282,9 +282,9 @@ export const SalesListPage: React.FC = () => {
 
       {/* Void Modal Prompt */}
       <Dialog open={!!selectedReceiptToVoid} onOpenChange={(open) => !open && setSelectedReceiptToVoid(null)}>
-        <DialogContent className="max-w-md bg-card rounded-2xl p-6">
+        <DialogContent className="bg-card">
           <DialogHeader>
-            <DialogTitle className="text-xl font-bold text-red-600">
+            <DialogTitle className="text-xl font-bold text-red-700">
               Void Sale: {selectedReceiptToVoid}
             </DialogTitle>
           </DialogHeader>
@@ -320,7 +320,7 @@ export const SalesListPage: React.FC = () => {
               <Button
                 type="button"
                 onClick={handleVoidSale}
-                className="rounded-xl h-11 px-5 bg-red-600 hover:bg-red-700 text-white"
+                className="rounded-xl h-11 px-5 bg-red-700 hover:bg-red-700 text-white"
                 disabled={voidLoading}
               >
                 {voidLoading ? 'Voiding...' : 'Confirm Void'}

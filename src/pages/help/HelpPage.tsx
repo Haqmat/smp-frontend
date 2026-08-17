@@ -3,13 +3,13 @@ import { PageHeader } from '@/components/ui/page-header';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { 
-  MagnifyingGlass, 
-  Package, 
-  ShoppingCart, 
-  Wallet, 
-  ChartBar, 
-  PhoneCall 
+import {
+  MagnifyingGlass,
+  Package,
+  ShoppingCart,
+  Wallet,
+  ChartBar,
+  PhoneCall
 } from '@phosphor-icons/react';
 
 export const HelpPage: React.FC = () => {
@@ -42,8 +42,8 @@ export const HelpPage: React.FC = () => {
     }
   ];
 
-  const filteredGuides = guides.filter(g => 
-    g.title.toLowerCase().includes(search.toLowerCase()) || 
+  const filteredGuides = guides.filter(g =>
+    g.title.toLowerCase().includes(search.toLowerCase()) ||
     g.content.toLowerCase().includes(search.toLowerCase()) ||
     g.category.toLowerCase().includes(search.toLowerCase())
   );
@@ -56,7 +56,7 @@ export const HelpPage: React.FC = () => {
       />
 
       {/* Search Header */}
-      <div className="bg-[#a38413] text-white p-8 rounded-2xl shadow-md space-y-4">
+      <div className="bg-[#5A3E2B] text-white p-8 rounded-2xl shadow-md space-y-4">
         <h2 className="text-2xl font-bold">How can we help you today?</h2>
         <div className="relative max-w-xl">
           <Input
@@ -74,13 +74,13 @@ export const HelpPage: React.FC = () => {
         {filteredGuides.map((guide, idx) => {
           const Icon = guide.icon;
           return (
-            <Card key={idx} className="rounded-2xl border-border shadow-sm bg-card hover:border-[#a38413] transition-colors">
+            <Card key={idx} className="rounded-2xl border-border shadow-sm bg-card hover:border-[#5A3E2B] transition-colors">
               <CardContent className="p-6 space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/20 text-[#a38413] flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/20 text-[#5A3E2B] flex items-center justify-center">
                     <Icon size={22} />
                   </div>
-                  <Badge variant="outline" className="rounded-lg text-xs font-bold text-[#a38413]">
+                  <Badge variant="outline" className="rounded-lg text-xs font-bold text-[#5A3E2B]">
                     {guide.category}
                   </Badge>
                 </div>
@@ -107,7 +107,7 @@ export const HelpPage: React.FC = () => {
             </div>
           </div>
           <div className="text-right">
-            <span className="font-bold text-[#a38413] text-lg block">+251 (0) 11 123 4567</span>
+            <span className="font-bold text-[#5A3E2B] text-lg block">+251 (0) 11 123 4567</span>
             <span className="text-xs text-gray-400">support@haqmat.com</span>
           </div>
         </CardContent>

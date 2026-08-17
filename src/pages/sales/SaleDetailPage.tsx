@@ -36,7 +36,7 @@ export const SaleDetailPage: React.FC = () => {
   if (loading) {
     return (
       <div className="h-[400px] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a38413]" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A3E2B]" />
       </div>
     );
   }
@@ -45,7 +45,7 @@ export const SaleDetailPage: React.FC = () => {
     return (
       <div className="text-center py-12">
         <h3 className="text-xl font-bold text-foreground">Receipt Not Found</h3>
-        <Button onClick={() => navigate('/sales')} className="mt-4 rounded-xl bg-[#a38413]">
+        <Button onClick={() => navigate('/sales')} className="mt-4 rounded-xl bg-[#5A3E2B]">
           Back to Sales List
         </Button>
       </div>
@@ -67,7 +67,7 @@ export const SaleDetailPage: React.FC = () => {
         </button>
         <Button
           onClick={() => window.print()}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white flex items-center gap-2 h-11 px-5 shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white flex items-center gap-2 h-11 px-5 shadow-sm"
         >
           <Printer size={18} />
           Print Receipt
@@ -80,10 +80,10 @@ export const SaleDetailPage: React.FC = () => {
         <div className="flex justify-between items-start border-b border-border pb-6">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-lg bg-[#a38413] flex items-center justify-center text-white font-bold text-lg">
+              <div className="w-9 h-9 rounded-lg bg-[#5A3E2B] flex items-center justify-center text-white font-bold text-lg">
                 H
               </div>
-              <h1 className="text-2xl font-bold text-[#a38413]">Haqmat Manufacturing PLC</h1>
+              <h1 className="text-2xl font-bold text-[#5A3E2B]">Haqmat Manufacturing PLC</h1>
             </div>
             <p className="text-sm text-gray-500">TIN: 0001234567 | Addis Ababa, Ethiopia</p>
             <p className="text-sm text-gray-500">Official Sales Cash Voucher / Tax Invoice</p>
@@ -164,12 +164,12 @@ export const SaleDetailPage: React.FC = () => {
             </div>
             <div className="flex justify-between text-muted-foreground">
               <span>VAT (15%):</span>
-              <span className="font-semibold text-[#a38413]">{formatCurrency(sale.financial_summary.vat_amount)}</span>
+              <span className="font-semibold text-[#5A3E2B]">{formatCurrency(sale.financial_summary.vat_amount)}</span>
             </div>
 
             <div className="border-t border-border pt-2 flex justify-between text-lg font-bold text-foreground">
               <span>Grand Total:</span>
-              <span className="text-[#a38413]">{formatCurrency(sale.financial_summary.total_amount)}</span>
+              <span className="text-[#5A3E2B]">{formatCurrency(sale.financial_summary.total_amount)}</span>
             </div>
           </div>
         </div>

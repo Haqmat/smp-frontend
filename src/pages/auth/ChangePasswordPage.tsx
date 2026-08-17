@@ -76,7 +76,7 @@ const ChangePasswordPage: React.FC = () => {
       <Card className="w-full max-w-md rounded-2xl border-border">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <div className="w-14 h-14 rounded-2xl bg-[#a38413] flex items-center justify-center text-white font-bold text-2xl">
+            <div className="w-14 h-14 rounded-2xl bg-[#5A3E2B] flex items-center justify-center text-white font-bold text-2xl">
               H
             </div>
           </div>
@@ -86,7 +86,7 @@ const ChangePasswordPage: React.FC = () => {
           <CardDescription className="text-muted-foreground">
             Please change your password before continuing
           </CardDescription>
-          <CardDescription className="text-sm text-[#a38413] font-medium mt-2">
+          <CardDescription className="text-sm text-[#5A3E2B] font-medium mt-2">
             Welcome, {user?.full_name || 'User'}!
           </CardDescription>
         </CardHeader>
@@ -103,9 +103,9 @@ const ChangePasswordPage: React.FC = () => {
                   id="current_password"
                   type={showCurrentPassword ? 'text' : 'password'}
                   placeholder="Enter current password"
-                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#a38413]/20"
-                  {...register('current_password', { 
-                    required: 'Current password is required' 
+                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#5A3E2B]/20"
+                  {...register('current_password', {
+                    required: 'Current password is required'
                   })}
                 />
                 <button
@@ -117,7 +117,7 @@ const ChangePasswordPage: React.FC = () => {
                 </button>
               </div>
               {errors.current_password && (
-                <p className="text-sm text-red-600 dark:text-red-400">{errors.current_password.message}</p>
+                <p className="text-sm text-red-700 dark:text-red-400">{errors.current_password.message}</p>
               )}
             </div>
 
@@ -131,8 +131,8 @@ const ChangePasswordPage: React.FC = () => {
                   id="new_password"
                   type={showNewPassword ? 'text' : 'password'}
                   placeholder="Enter new password"
-                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#a38413]/20"
-                  {...register('new_password', { 
+                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#5A3E2B]/20"
+                  {...register('new_password', {
                     required: 'New password is required',
                     minLength: {
                       value: 8,
@@ -149,7 +149,7 @@ const ChangePasswordPage: React.FC = () => {
                 </button>
               </div>
               {errors.new_password && (
-                <p className="text-sm text-red-600 dark:text-red-400">{errors.new_password.message}</p>
+                <p className="text-sm text-red-700 dark:text-red-400">{errors.new_password.message}</p>
               )}
             </div>
 
@@ -163,10 +163,10 @@ const ChangePasswordPage: React.FC = () => {
                   id="confirm_password"
                   type={showConfirmPassword ? 'text' : 'password'}
                   placeholder="Confirm new password"
-                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#a38413]/20"
-                  {...register('confirm_password', { 
+                  className="pl-9 pr-10 rounded-xl border-border bg-card text-foreground focus:ring-[#5A3E2B]/20"
+                  {...register('confirm_password', {
                     required: 'Please confirm your password',
-                    validate: (value) => 
+                    validate: (value) =>
                       value === newPassword || 'Passwords do not match',
                   })}
                 />
@@ -179,19 +179,19 @@ const ChangePasswordPage: React.FC = () => {
                 </button>
               </div>
               {errors.confirm_password && (
-                <p className="text-sm text-red-600 dark:text-red-400">{errors.confirm_password.message}</p>
+                <p className="text-sm text-red-700 dark:text-red-400">{errors.confirm_password.message}</p>
               )}
             </div>
 
             {errors.root && (
               <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800">
-                <p className="text-sm text-red-600 dark:text-red-400">{errors.root.message}</p>
+                <p className="text-sm text-red-700 dark:text-red-400">{errors.root.message}</p>
               </div>
             )}
 
             <Button
               type="submit"
-              className="w-full rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-11"
+              className="w-full rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-11"
               disabled={isLoading}
             >
               {isLoading ? (

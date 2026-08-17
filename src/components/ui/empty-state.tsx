@@ -20,7 +20,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
     <div className="flex flex-col items-center justify-center text-center p-8 md:p-12 border border-dashed border-border bg-card text-card-foreground rounded-2xl max-w-lg mx-auto my-6">
       {Icon && (
         <div className="w-16 h-16 rounded-2xl bg-muted text-muted-foreground flex items-center justify-center mb-6">
-          <Icon className="w-8 h-8 text-[#a38413]" />
+          <Icon className="w-8 h-8 text-[#5A3E2B]" />
         </div>
       )}
       <h3 className="text-xl font-bold text-foreground mb-2">
@@ -32,7 +32,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       {actionText && onAction && (
         <Button
           onClick={onAction}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white px-5 py-2.5 text-base shadow-sm hover:shadow-md transition-all font-medium"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white px-5 py-2.5 text-base shadow-sm hover:shadow-md transition-all font-medium"
         >
           {actionText}
         </Button>

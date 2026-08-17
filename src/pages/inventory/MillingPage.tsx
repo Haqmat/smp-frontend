@@ -197,7 +197,7 @@ export const MillingPage: React.FC = () => {
     {
       header: 'Total Flour Produced',
       cell: (row: MillingSession) => (
-        <span className="font-semibold text-green-600 dark:text-green-400">
+        <span className="font-semibold text-green-700 dark:text-green-400">
           {formatNumber(row.total_output_quantity)} kg
         </span>
       ),
@@ -224,7 +224,7 @@ export const MillingPage: React.FC = () => {
       >
         <Button
           onClick={() => setIsModalOpen(true)}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-11 text-base shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-11 text-base shadow-sm"
         >
           <Plus className="mr-2 h-5 w-5" />
           Log Milling Run
@@ -234,7 +234,7 @@ export const MillingPage: React.FC = () => {
       {/* Filters */}
       <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
         <h3 className="text-base font-bold text-foreground mb-4 flex items-center gap-2">
-          <Funnel size={18} className="text-[#a38413]" />
+          <Funnel size={18} className="text-[#5A3E2B]" />
           Filter Milling Runs
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -244,7 +244,7 @@ export const MillingPage: React.FC = () => {
               id="filterInput"
               value={inputProductFilter}
               onChange={(e) => { setInputProductFilter(e.target.value); setPage(1); }}
-              className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+              className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
             >
               <option value="">All Grains</option>
               {rawProducts.map(p => (
@@ -289,7 +289,7 @@ export const MillingPage: React.FC = () => {
 
       {/* Logging Dialog */}
       <Dialog open={isModalOpen} onOpenChange={(open) => !open && setIsModalOpen(false)}>
-        <DialogContent className="max-w-2xl bg-card rounded-2xl p-6 overflow-y-auto max-h-[85vh]">
+        <DialogContent className="bg-card sm:max-w-3xl">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">Log Milling Session</DialogTitle>
           </DialogHeader>
@@ -308,7 +308,7 @@ export const MillingPage: React.FC = () => {
             {/* Input Section */}
             <div className="bg-muted/20/50 dark:bg-secondary/30 p-4 rounded-xl space-y-4 border border-gray-100 border-border">
               <span className="font-bold text-foreground block">Input Grain Details</span>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="modalInputProd" className="required">Select Raw Grain</Label>
@@ -317,7 +317,7 @@ export const MillingPage: React.FC = () => {
                     value={inputProductId}
                     onChange={(e) => setInputProductId(e.target.value)}
                     required
-                    className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                    className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                   >
                     <option value="">Select a grain...</option>
                     {rawProducts.map(p => (
@@ -376,7 +376,7 @@ export const MillingPage: React.FC = () => {
                       <select
                         value={item.output_product_id}
                         onChange={(e) => updateOutput(idx, 'output_product_id', e.target.value)}
-                        className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                        className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                       >
                         <option value="">Select a flour...</option>
                         {flourProducts.map(p => (
@@ -442,7 +442,7 @@ export const MillingPage: React.FC = () => {
                 rows={2}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full rounded-xl border border-border bg-card p-3 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                className="w-full rounded-xl border border-border bg-card p-3 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                 placeholder="Session status details..."
               />
             </div>
@@ -459,7 +459,7 @@ export const MillingPage: React.FC = () => {
               </Button>
               <Button
                 type="submit"
-                className="rounded-xl h-11 px-5 bg-[#a38413] hover:bg-[#85690F] text-white"
+                className="rounded-xl h-11 px-5 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white"
                 disabled={formLoading || !isStockSufficient}
               >
                 {formLoading ? 'Recording...' : 'Record Milling'}

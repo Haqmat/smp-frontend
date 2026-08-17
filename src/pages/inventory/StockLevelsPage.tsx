@@ -67,7 +67,7 @@ export const StockLevelsPage: React.FC = () => {
       header: 'Current Balance',
       accessorKey: 'current_stock',
       cell: (row: StockLevel) => (
-        <span className={`font-semibold ${row.is_low_stock ? 'text-red-600 dark:text-red-400 font-bold' : 'text-foreground'}`}>
+        <span className={`font-semibold ${row.is_low_stock ? 'text-red-700 dark:text-red-400 font-bold' : 'text-foreground'}`}>
           {formatNumber(row.current_stock)} {row.unit_of_measure}
         </span>
       )
@@ -82,12 +82,12 @@ export const StockLevelsPage: React.FC = () => {
       accessorKey: 'is_low_stock',
       cell: (row: StockLevel) => (
         row.is_low_stock ? (
-          <span className="inline-flex items-center gap-1 text-red-700 bg-red-50 dark:bg-red-950/20 dark:text-red-400 px-2 py-0.5 rounded-lg text-xs font-semibold ring-1 ring-inset ring-red-600/10">
+          <span className="inline-flex items-center gap-1 text-red-700 bg-red-50 dark:bg-red-950/20 dark:text-red-400 px-2 py-0.5 rounded-lg text-xs font-semibold ring-1 ring-inset ring-red-700/10">
             <Warning size={14} />
             Low Stock
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1 text-green-700 bg-green-50 dark:bg-green-950/20 dark:text-green-400 px-2 py-0.5 rounded-lg text-xs font-semibold ring-1 ring-inset ring-green-600/10">
+          <span className="inline-flex items-center gap-1 text-green-700 bg-green-50 dark:bg-green-950/20 dark:text-green-400 px-2 py-0.5 rounded-lg text-xs font-semibold ring-1 ring-inset ring-green-700/10">
             <CheckCircle size={14} />
             Healthy
           </span>
@@ -121,7 +121,7 @@ export const StockLevelsPage: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-card p-5 rounded-2xl border border-border shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-gray-400">
-            <Package size={24} className="text-[#a38413]" />
+            <Package size={24} className="text-[#5A3E2B]" />
           </div>
           <div>
             <p className="text-sm font-medium text-gray-500">Raw Grain Items</p>
@@ -145,7 +145,7 @@ export const StockLevelsPage: React.FC = () => {
           </div>
           <div>
             <p className="text-sm font-medium text-gray-500">Low Stock Alerts</p>
-            <h4 className="text-2xl font-bold text-red-600 dark:text-red-400">{summary.low_stock_alerts_count}</h4>
+            <h4 className="text-2xl font-bold text-red-700 dark:text-red-400">{summary.low_stock_alerts_count}</h4>
           </div>
         </div>
       </div>
@@ -157,11 +157,10 @@ export const StockLevelsPage: React.FC = () => {
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                typeFilter === t
-                  ? 'bg-card text-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-gray-700 dark:hover:text-gray-300'
-              }`}
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${typeFilter === t
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-gray-700 dark:hover:text-gray-300'
+                }`}
             >
               {t === 'ALL' ? 'All Types' : t.replace('_', ' ').toLowerCase()}
             </button>
@@ -173,7 +172,7 @@ export const StockLevelsPage: React.FC = () => {
             type="checkbox"
             checked={lowStockFilter}
             onChange={(e) => setLowStockFilter(e.target.checked)}
-            className="w-5 h-5 rounded border-gray-300 text-[#a38413] focus:ring-[#a38413]"
+            className="w-5 h-5 rounded border-gray-300 text-[#5A3E2B] focus:ring-[#5A3E2B]"
           />
           <span className="text-base text-foreground font-medium">Show Low Stock Only</span>
         </label>

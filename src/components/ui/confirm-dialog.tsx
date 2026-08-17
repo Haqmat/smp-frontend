@@ -40,12 +40,12 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   const getConfirmButtonStyles = () => {
     switch (variant) {
       case 'danger':
-        return 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500';
+        return 'bg-red-700 hover:bg-red-700 text-white focus:ring-red-500';
       case 'warning':
         return 'bg-amber-500 hover:bg-amber-600 text-white focus:ring-amber-500';
       case 'info':
       default:
-        return 'bg-[#a38413] hover:bg-[#85690F] text-white focus:ring-[#a38413]';
+        return 'bg-[#5A3E2B] hover:bg-[#5a3d09] text-white focus:ring-[#5A3E2B]';
     }
   };
 

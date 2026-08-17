@@ -113,7 +113,7 @@ export const NewExpensePage: React.FC = () => {
                   id="category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value as any)}
-                  className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                  className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                 >
                   <option value="TRANSPORT">Transport</option>
                   <option value="SALARY">Salary</option>
@@ -156,7 +156,7 @@ export const NewExpensePage: React.FC = () => {
                   id="paymentMethod"
                   value={paymentMethod}
                   onChange={(e) => setPaymentMethod(e.target.value as any)}
-                  className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                  className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                 >
                   <option value="CASH">Cash</option>
                   <option value="BANK_TRANSFER">Bank Transfer</option>
@@ -196,7 +196,7 @@ export const NewExpensePage: React.FC = () => {
                 id="linkBatch"
                 value={linkedBatchId}
                 onChange={(e) => setLinkedBatchId(e.target.value)}
-                className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
               >
                 <option value="">None (General Expense)</option>
                 {intakeBatches.map(b => (
@@ -219,7 +219,7 @@ export const NewExpensePage: React.FC = () => {
               </Button>
               <Button
                 type="submit"
-                className="rounded-xl h-11 px-5 bg-[#a38413] hover:bg-[#85690F] text-white"
+                className="rounded-xl h-11 px-5 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white"
                 disabled={loading}
               >
                 {loading ? 'Recording...' : 'Save Expense'}

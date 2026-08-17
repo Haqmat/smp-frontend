@@ -85,11 +85,10 @@ export const StockMovementsPage: React.FC = () => {
       cell: (row: StockMovement) => {
         const isIncrease = row.quantity_change > 0;
         return (
-          <span className={`inline-flex items-center gap-1 font-semibold rounded-lg px-2 py-0.5 text-xs ${
-            isIncrease
-              ? 'bg-green-50 text-green-700 dark:bg-green-950/30 dark:text-green-400'
-              : 'bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400'
-          }`}>
+          <span className={`inline-flex items-center gap-1 font-semibold rounded-lg px-2 py-0.5 text-xs ${isIncrease
+            ? 'bg-green-50 text-green-700 dark:bg-green-950/30 dark:text-green-400'
+            : 'bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400'
+            }`}>
             {isIncrease ? <ArrowDownLeft size={14} /> : <ArrowUpRight size={14} />}
             {row.movement_type}
           </span>
@@ -100,7 +99,7 @@ export const StockMovementsPage: React.FC = () => {
       header: 'Quantity Change',
       accessorKey: 'quantity_change',
       cell: (row: StockMovement) => (
-        <span className={`font-bold ${row.quantity_change > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+        <span className={`font-bold ${row.quantity_change > 0 ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}`}>
           {row.quantity_change > 0 ? '+' : ''}{formatNumber(row.quantity_change)} kg
         </span>
       )
@@ -144,7 +143,7 @@ export const StockMovementsPage: React.FC = () => {
             id="selectProduct"
             value={selectedProductId}
             onChange={(e) => { setSelectedProductId(e.target.value); setPage(1); }}
-            className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+            className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
           >
             {products.map(p => (
               <option key={p.id} value={p.id}>{p.name} ({p.type})</option>
@@ -155,7 +154,7 @@ export const StockMovementsPage: React.FC = () => {
         <div className="bg-muted/40 p-4 rounded-xl flex items-center justify-between">
           <div>
             <p className="text-sm font-medium text-gray-500">Current Stock Balance</p>
-            <h3 className="text-2xl font-bold text-[#a38413] mt-0.5">
+            <h3 className="text-2xl font-bold text-[#5A3E2B] mt-0.5">
               {formatNumber(currentBalance)} kg
             </h3>
           </div>
@@ -169,18 +168,17 @@ export const StockMovementsPage: React.FC = () => {
 
       {/* Movement Filter */}
       <div className="bg-card p-4 rounded-2xl border border-border shadow-sm flex items-center gap-3">
-        <Funnel size={18} className="text-[#a38413]" />
+        <Funnel size={18} className="text-[#5A3E2B]" />
         <span className="text-sm font-medium text-gray-500">Filter Type:</span>
         <div className="flex items-center gap-2">
           {(['ALL', 'INTAKE', 'MILLING_INPUT', 'MILLING_OUTPUT', 'SALE'] as const).map((t) => (
             <button
               key={t}
               onClick={() => { setMovementTypeFilter(t); setPage(1); }}
-              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-                movementTypeFilter === t
-                  ? 'bg-[#a38413] text-white'
-                  : 'bg-accent text-muted-foreground hover:bg-gray-200'
-              }`}
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${movementTypeFilter === t
+                ? 'bg-[#5A3E2B] text-white'
+                : 'bg-accent text-muted-foreground hover:bg-gray-200'
+                }`}
             >
               {t}
             </button>

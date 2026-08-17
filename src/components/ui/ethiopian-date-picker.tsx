@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Calendar as CalendarIcon, CaretLeft, CaretRight } from '@phosphor-icons/react';
-import { 
-  getTodayEthiopian, 
-  formatEthiopian, 
-  parseEthiopianDateString, 
-  isValidEthiopianDate, 
-  getEthiopianMonthNames, 
-  daysInEthiopianMonth, 
-  toGregorian 
+import {
+  getTodayEthiopian,
+  formatEthiopian,
+  parseEthiopianDateString,
+  isValidEthiopianDate,
+  getEthiopianMonthNames,
+  daysInEthiopianMonth,
+  toGregorian
 } from '@/utils/ethiopianDate';
 import { cn } from '@/lib/utils';
 
@@ -117,8 +117,8 @@ export const EthiopianDatePicker: React.FC<EthiopianDatePickerProps> = ({
           )}
           placeholder="YYYY-MM-DD (Ethiopian)"
         />
-        <CalendarIcon 
-          className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground cursor-pointer pointer-events-none" 
+        <CalendarIcon
+          className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground cursor-pointer pointer-events-none"
         />
       </div>
 
@@ -160,15 +160,15 @@ export const EthiopianDatePicker: React.FC<EthiopianDatePickerProps> = ({
             {Array.from({ length: startingDay }).map((_, idx) => (
               <span key={`empty-${idx}`} />
             ))}
-            
+
             {/* Days */}
             {Array.from({ length: totalDays }).map((_, idx) => {
               const day = idx + 1;
-              const isSelected = selectedDate && 
-                                 selectedDate.year === currentYear && 
-                                 selectedDate.month === currentMonth && 
-                                 selectedDate.day === day;
-              
+              const isSelected = selectedDate &&
+                selectedDate.year === currentYear &&
+                selectedDate.month === currentMonth &&
+                selectedDate.day === day;
+
               return (
                 <button
                   key={day}
@@ -177,7 +177,7 @@ export const EthiopianDatePicker: React.FC<EthiopianDatePickerProps> = ({
                   className={cn(
                     'h-8 w-8 text-sm font-medium rounded-lg transition-all',
                     isSelected
-                      ? 'bg-[#a38413] text-white hover:bg-[#85690F]'
+                      ? 'bg-[#5A3E2B] text-white hover:bg-[#5a3d09]'
                       : 'text-foreground hover:bg-muted/20 hover:bg-accent'
                   )}
                 >

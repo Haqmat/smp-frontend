@@ -190,7 +190,7 @@ export const ProductManagementPage: React.FC = () => {
       >
         <Button
           onClick={handleOpenAddModal}
-          className="rounded-xl bg-[#a38413] hover:bg-[#85690F] text-white h-11 text-base shadow-sm"
+          className="rounded-xl bg-[#5A3E2B] hover:bg-[#5a3d09] text-white h-11 text-base shadow-sm"
         >
           <Plus className="mr-2 h-5 w-5" />
           Add Product
@@ -205,7 +205,7 @@ export const ProductManagementPage: React.FC = () => {
 
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={(open) => !open && setIsModalOpen(false)}>
-        <DialogContent className="max-w-md bg-card rounded-2xl p-6">
+        <DialogContent className="bg-card">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">
               {editingProduct ? 'Edit Product' : 'Add New Product'}
@@ -232,7 +232,7 @@ export const ProductManagementPage: React.FC = () => {
                   id="prodType"
                   value={type}
                   onChange={(e) => setType(e.target.value as any)}
-                  className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#a38413]"
+                  className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-base outline-none focus:ring-2 focus:ring-[#5A3E2B]"
                 >
                   <option value="FINISHED_FLOUR">Finished Flour (ዱቄት)</option>
                   <option value="RAW_GRAIN">Raw Grain (እህል)</option>
@@ -280,7 +280,7 @@ export const ProductManagementPage: React.FC = () => {
               </Button>
               <Button
                 type="submit"
-                className="rounded-xl h-11 px-5 bg-[#a38413] hover:bg-[#85690F] text-white"
+                className="rounded-xl h-11 px-5 bg-[#5A3E2B] hover:bg-[#5a3d09] text-white"
                 disabled={formLoading}
               >
                 {formLoading ? 'Saving...' : 'Save Product'}
